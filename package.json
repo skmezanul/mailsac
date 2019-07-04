@@ -6,7 +6,9 @@
   "scripts": {
     "start": "NODE_ENV=development DEBUG=mailsac* node app.js",
     "msg": "DEBUG=mailsac* node tests/msg-recd.js",
-    "lint": "node_modules/.bin/jscs --config=.jscsrc --reporter=console app.js smtp-server.js schemas.js lib/*.js public/**/*.js routes/**.js; jshint app.js smtp-server.js schemas.js lib/*.js public/**/*.js routes/**.js;"
+    "lint": "node_modules/.bin/jscs --config=.jscsrc --reporter=console app.js smtp-server.js schemas.js lib/*.js public/**/*.js routes/**.js; jshint app.js smtp-server.js schemas.js lib/*.js public/**/*.js routes/**.js;",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "license": "MIT",
   "dependencies": {
@@ -33,7 +35,8 @@
     "request": "^2.60.0",
     "sanitizer": "^0.1.2",
     "serve-favicon": "^2.3.0",
-    "simplesmtp": "^0.3.35"
+    "simplesmtp": "^0.3.35",
+    "snyk": "^1.189.0"
   },
   "engines": {
     "node": ">=0.12.0"
@@ -41,5 +44,6 @@
   "devDependencies": {
     "jscs": "^2.0.0",
     "jshint": "^2.8.0"
-  }
+  },
+  "snyk": true
 }
